@@ -11,23 +11,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet" />
 
   <style>
-    /* ── TOKENS ── */
     :root {
-      --bg:        #F7F6F1;
-      --bg2:       #EDEAE0;
-      --dark:      #141E13;
-      --green:     #254D35;
-      --green-m:   #3A7055;
-      --green-l:   #84B89A;
-      --sage:      #C1D9C7;
-      --text:      #2B392D;
-      --muted:     #6B7F6E;
-      --white:     #FFFFFF;
-      --border:    rgba(37,77,53,.12);
-      --shadow:    0 20px 60px rgba(20,30,19,.1);
+      --bg:      #F7F6F1;
+      --bg2:     #EDEAE0;
+      --dark:    #141E13;
+      --green:   #254D35;
+      --green-m: #3A7055;
+      --green-l: #84B89A;
+      --sage:    #C1D9C7;
+      --text:    #2B392D;
+      --muted:   #6B7F6E;
+      --white:   #FFFFFF;
+      --border:  rgba(37,77,53,.12);
+      --shadow:  0 20px 60px rgba(20,30,19,.1);
     }
 
-    /* ── RESET ── */
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
     body {
@@ -49,7 +47,6 @@
       transition:box-shadow .3s;
     }
     nav.scrolled { box-shadow:0 2px 24px rgba(20,30,19,.08); }
-
     .nav-brand { display:flex; align-items:center; gap:.65rem; }
     .nav-orb {
       width:34px; height:34px; border-radius:50%;
@@ -63,7 +60,6 @@
       font-size:1.1rem; font-weight:600; color:var(--dark);
       letter-spacing:.02em;
     }
-
     .nav-links { display:flex; gap:2.5rem; list-style:none; }
     .nav-links a {
       font-size:.78rem; font-weight:500;
@@ -72,11 +68,8 @@
     }
     .nav-links a:hover { color:var(--green); }
 
-    /* hamburger */
     .ham { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:4px; }
     .ham span { width:22px; height:2px; background:var(--dark); border-radius:2px; transition:all .3s; }
-
-    /* mobile menu */
     .mob {
       display:none; position:fixed; inset:0; z-index:890;
       background:var(--bg); flex-direction:column;
@@ -100,8 +93,6 @@
       padding:9rem 4rem 6rem;
       position:relative; overflow:hidden; text-align:center;
     }
-
-    /* dot-grid */
     .hero::before {
       content:'';
       position:absolute; inset:0;
@@ -109,16 +100,12 @@
       background-size:30px 30px;
       opacity:.4; pointer-events:none;
     }
-
-    /* ambient glow */
     .hero-glow {
       position:absolute; inset:0; pointer-events:none;
       background:
         radial-gradient(ellipse 70% 60% at 15% 50%, rgba(37,77,53,.07) 0%, transparent 70%),
         radial-gradient(ellipse 50% 50% at 85% 20%, rgba(37,77,53,.05) 0%, transparent 65%);
     }
-
-    /* large decorative cell ring */
     .hero-ring {
       position:absolute;
       width:min(560px, 80vw); aspect-ratio:1;
@@ -133,13 +120,8 @@
       border-radius:50%;
       border:1px solid rgba(37,77,53,.07);
     }
+    .hero-inner { position:relative; z-index:2; max-width:780px; margin:0 auto; }
 
-    .hero-inner {
-      position:relative; z-index:2;
-      max-width:780px; margin:0 auto;
-    }
-
-    /* staggered animation helpers */
     .a1 { opacity:0; animation:rise .9s .05s cubic-bezier(.22,1,.36,1) forwards; }
     .a2 { opacity:0; animation:rise .9s .20s cubic-bezier(.22,1,.36,1) forwards; }
     .a3 { opacity:0; animation:rise .9s .35s cubic-bezier(.22,1,.36,1) forwards; }
@@ -149,15 +131,13 @@
     .hero-badge {
       display:inline-flex; align-items:center; gap:.55rem;
       padding:.38rem 1.1rem;
-      border:1.5px solid var(--border);
-      border-radius:999px;
+      border:1.5px solid var(--border); border-radius:999px;
       background:rgba(255,255,255,.65);
       font-size:.72rem; letter-spacing:.16em;
       text-transform:uppercase; color:var(--green-m);
       margin-bottom:2rem;
     }
     .badge-dot { width:6px; height:6px; border-radius:50%; background:var(--green-l); }
-
     .hero-h1 {
       font-family:'Cormorant Garamond',serif;
       font-size:clamp(3.8rem, 9vw, 7rem);
@@ -166,18 +146,8 @@
       margin-bottom:1.4rem;
     }
     .hero-h1 em { color:var(--green); font-style:italic; }
-
-    .hero-sub {
-      font-size:1.05rem; color:var(--muted);
-      font-weight:300; letter-spacing:.03em;
-      margin-bottom:.5rem;
-    }
-    .hero-inst {
-      font-size:.78rem; color:var(--green-m);
-      letter-spacing:.2em; text-transform:uppercase;
-      margin-bottom:3.5rem;
-    }
-
+    .hero-sub { font-size:1.05rem; color:var(--muted); font-weight:300; letter-spacing:.03em; margin-bottom:.5rem; }
+    .hero-inst { font-size:.78rem; color:var(--green-m); letter-spacing:.2em; text-transform:uppercase; margin-bottom:3.5rem; }
     .hero-cta { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
 
     /* ── BUTTONS ── */
@@ -191,30 +161,14 @@
       transition:all .25s ease;
     }
     .btn-solid { background:var(--green); color:#fff; }
-    .btn-solid:hover {
-      background:var(--dark);
-      transform:translateY(-2px);
-      box-shadow:0 10px 30px rgba(20,30,19,.22);
-    }
-    .btn-ghost {
-      background:transparent; color:var(--green);
-      border:1.5px solid rgba(37,77,53,.35);
-    }
-    .btn-ghost:hover {
-      border-color:var(--green);
-      background:rgba(37,77,53,.05);
-      transform:translateY(-2px);
-    }
+    .btn-solid:hover { background:var(--dark); transform:translateY(-2px); box-shadow:0 10px 30px rgba(20,30,19,.22); }
+    .btn-ghost { background:transparent; color:var(--green); border:1.5px solid rgba(37,77,53,.35); }
+    .btn-ghost:hover { border-color:var(--green); background:rgba(37,77,53,.05); transform:translateY(-2px); }
 
     /* ── LAYOUT ── */
     section { padding:7rem 4rem; }
     .inner { max-width:980px; margin:0 auto; }
-
-    .eyebrow {
-      display:block; font-size:.72rem;
-      letter-spacing:.22em; text-transform:uppercase;
-      color:var(--green-m); margin-bottom:.7rem;
-    }
+    .eyebrow { display:block; font-size:.72rem; letter-spacing:.22em; text-transform:uppercase; color:var(--green-m); margin-bottom:.7rem; }
     .sec-title {
       font-family:'Cormorant Garamond',serif;
       font-size:clamp(2.3rem,4.5vw,3.4rem);
@@ -225,16 +179,9 @@
 
     /* ── ABOUT ── */
     .about { background:var(--bg); }
-
-    .about-grid {
-      display:grid; grid-template-columns:300px 1fr;
-      gap:5rem; align-items:start;
-    }
-
-    /* profile card */
+    .about-grid { display:grid; grid-template-columns:300px 1fr; gap:5rem; align-items:start; }
     .pcard {
-      background:var(--white);
-      border:1px solid var(--border);
+      background:var(--white); border:1px solid var(--border);
       border-radius:4px; overflow:hidden;
       position:sticky; top:7rem;
       box-shadow:0 4px 20px rgba(20,30,19,.06);
@@ -251,93 +198,124 @@
       font-family:'Cormorant Garamond',serif;
       font-size:2.4rem; font-weight:700; color:#fff;
     }
-    .pcard-name {
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.25rem; font-weight:600; color:#fff;
-      text-align:center; line-height:1.2;
-    }
-    .pcard-role {
-      font-size:.7rem; color:rgba(255,255,255,.65);
-      text-transform:uppercase; letter-spacing:.14em; text-align:center;
-    }
+    .pcard-name { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:600; color:#fff; text-align:center; line-height:1.2; }
+    .pcard-role { font-size:.7rem; color:rgba(255,255,255,.65); text-transform:uppercase; letter-spacing:.14em; text-align:center; }
     .pcard-body { padding:1rem 1.4rem 1.4rem; }
-    .prow {
-      padding:.75rem 0;
-      border-bottom:1px solid var(--border);
-      display:flex; flex-direction:column; gap:.15rem;
-    }
+    .prow { padding:.75rem 0; border-bottom:1px solid var(--border); display:flex; flex-direction:column; gap:.15rem; }
     .prow:last-child { border-bottom:none; }
     .prow .lbl { font-size:.65rem; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
     .prow .val { font-size:.9rem; color:var(--dark); font-weight:500; }
-
-    /* about text */
     .about-body .sec-title { margin-bottom:1.2rem; }
-    .about-body p {
-      font-size:1.05rem; line-height:1.85;
-      color:#4A5E4D; font-weight:300; margin-bottom:1.4rem;
-    }
+    .about-body p { font-size:1.05rem; line-height:1.85; color:#4A5E4D; font-weight:300; margin-bottom:1.4rem; }
     .about-body strong { color:var(--dark); font-weight:500; }
-
-    .topics {
-      display:flex; flex-wrap:wrap; gap:.55rem;
-      margin-top:2.2rem;
-    }
+    .topics { display:flex; flex-wrap:wrap; gap:.55rem; margin-top:2.2rem; }
     .tag {
-      padding:.4rem 1rem;
-      border:1px solid rgba(37,77,53,.2);
-      border-radius:2px;
-      font-size:.76rem; color:var(--green);
-      font-weight:500; letter-spacing:.04em;
-      background:rgba(37,77,53,.03);
-      transition:all .2s;
+      padding:.4rem 1rem; border:1px solid rgba(37,77,53,.2); border-radius:2px;
+      font-size:.76rem; color:var(--green); font-weight:500; letter-spacing:.04em;
+      background:rgba(37,77,53,.03); transition:all .2s;
     }
     .tag:hover { background:rgba(37,77,53,.08); border-color:var(--green); }
 
-    /* ── RESOURCES ── */
+    /* ── RESOURCES (NOTES) ── */
     .resources { background:var(--bg2); }
 
+    .filters { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .filter-btn {
+      padding:.42rem 1.1rem;
+      border:1.5px solid var(--border); border-radius:999px;
+      background:transparent;
+      font-family:'DM Sans', sans-serif;
+      font-size:.78rem; font-weight:500;
+      letter-spacing:.06em; color:var(--muted);
+      cursor:pointer; transition:all .2s;
+    }
+    .filter-btn:hover { border-color:var(--green-m); color:var(--green-m); }
+    .filter-btn.on { background:var(--green); color:#fff; border-color:var(--green); }
+    .filter-btn .count {
+      display:inline-block; margin-left:.35rem;
+      background:rgba(255,255,255,.25); color:inherit;
+      font-size:.65rem; padding:.1rem .4rem;
+      border-radius:999px; font-weight:600;
+    }
+    .filter-btn:not(.on) .count { background:rgba(37,77,53,.08); color:var(--green-m); }
+
+    .cards-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.2rem; }
+
+    .note-card {
+      background:var(--white); border:1px solid var(--border);
+      border-radius:6px; display:flex; flex-direction:column;
+      overflow:hidden; transition:box-shadow .3s, transform .3s;
+    }
+    .note-card:hover { box-shadow:0 8px 32px rgba(20,30,19,.09); transform:translateY(-3px); }
+
+    .card-top { padding:1.2rem 1.4rem .8rem; display:flex; align-items:center; justify-content:space-between; }
+    .card-subject {
+      font-size:.68rem; font-weight:600;
+      letter-spacing:.12em; text-transform:uppercase;
+      padding:.28rem .75rem; border-radius:999px;
+      background:rgba(37,77,53,.08); color:var(--green);
+    }
+    .card-new {
+      font-size:.62rem; font-weight:700;
+      letter-spacing:.1em; text-transform:uppercase;
+      padding:.2rem .6rem; border-radius:999px;
+      background:#FEF3C7; color:#92400E;
+    }
+    .card-body { padding:.2rem 1.4rem 1rem; flex:1; }
+    .card-title {
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.25rem; font-weight:600;
+      color:var(--dark); line-height:1.25; margin-bottom:.5rem;
+    }
+    .card-desc { font-size:.85rem; color:var(--muted); line-height:1.6; font-weight:300; }
+    .card-footer { padding:1rem 1.4rem; border-top:1px solid var(--border); display:flex; align-items:center; gap:.6rem; }
+    .btn-open {
+      flex:1; display:inline-flex; align-items:center; justify-content:center; gap:.4rem;
+      padding:.6rem 1rem; background:var(--green); color:#fff;
+      border-radius:3px; font-size:.76rem; font-weight:500;
+      letter-spacing:.08em; text-transform:uppercase; transition:all .2s;
+    }
+    .btn-open:hover { background:var(--dark); }
+    .btn-dl {
+      width:36px; height:36px; flex-shrink:0;
+      display:inline-flex; align-items:center; justify-content:center;
+      border:1.5px solid var(--border); border-radius:3px;
+      font-size:1rem; color:var(--green-m); transition:all .2s;
+    }
+    .btn-dl:hover { border-color:var(--green); color:var(--green); background:rgba(37,77,53,.04); }
+
+    .empty { display:none; grid-column:1/-1; text-align:center; padding:4rem 2rem; }
+    .empty-icon { font-size:2.5rem; margin-bottom:1rem; }
+    .empty p { color:var(--muted); font-size:.95rem; }
+    .empty.show { display:block; }
+
+    /* ── COMMUNITY ── */
+    .community { background:var(--bg); }
     .fb-card {
-      background:var(--white);
-      border:1px solid var(--border); border-radius:4px;
+      background:var(--white); border:1px solid var(--border); border-radius:4px;
       display:grid; grid-template-columns:1fr 260px;
-      overflow:hidden;
-      transition:box-shadow .35s;
+      overflow:hidden; transition:box-shadow .35s;
     }
     .fb-card:hover { box-shadow:var(--shadow); }
-
     .fb-body { padding:3.5rem; }
     .fb-body h3 {
       font-family:'Cormorant Garamond',serif;
       font-size:2rem; font-weight:600; color:var(--dark);
       line-height:1.15; margin-bottom:1rem;
     }
-    .fb-body p {
-      font-size:1rem; color:var(--muted);
-      line-height:1.75; font-weight:300; margin-bottom:2rem;
-    }
-
+    .fb-body p { font-size:1rem; color:var(--muted); line-height:1.75; font-weight:300; margin-bottom:2rem; }
     .fb-panel {
       background:#1877F2;
       display:flex; flex-direction:column;
-      align-items:center; justify-content:center; gap:1.2rem;
-      padding:2rem;
+      align-items:center; justify-content:center; gap:1.2rem; padding:2rem;
     }
     .fb-panel svg { width:72px; height:72px; }
-    .fb-panel-label {
-      font-size:.7rem; color:rgba(255,255,255,.6);
-      letter-spacing:.14em; text-transform:uppercase; text-align:center;
-    }
-
-    /* what you'll find chips */
-    .find-list {
-      display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:2rem;
-    }
+    .fb-panel-label { font-size:.7rem; color:rgba(255,255,255,.6); letter-spacing:.14em; text-transform:uppercase; text-align:center; }
+    .find-list { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:2rem; }
     .find-chip {
       display:inline-flex; align-items:center; gap:.35rem;
-      padding:.3rem .8rem;
-      background:rgba(37,77,53,.06);
-      border-radius:999px;
-      font-size:.78rem; color:var(--green-m); font-weight:500;
+      padding:.3rem .8rem; background:rgba(37,77,53,.06);
+      border-radius:999px; font-size:.78rem; color:var(--green-m); font-weight:500;
     }
     .find-chip::before { content:'✓'; font-size:.7rem; font-weight:700; }
 
@@ -345,61 +323,33 @@
     .contact { background:var(--dark); }
     .contact .eyebrow { color:var(--green-l); }
     .contact .sec-title { color:#fff; }
-    .contact-desc {
-      font-size:1rem; font-weight:300;
-      color:rgba(255,255,255,.5); max-width:480px;
-      line-height:1.75; margin-bottom:3rem;
-    }
+    .contact-desc { font-size:1rem; font-weight:300; color:rgba(255,255,255,.5); max-width:480px; line-height:1.75; margin-bottom:3rem; }
     .clinks { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
-
     .clink {
       display:flex; align-items:center; gap:1.4rem;
       padding:1.8rem 2.2rem;
-      background:rgba(255,255,255,.05);
-      border:1px solid rgba(255,255,255,.09);
-      border-radius:4px;
-      transition:all .3s;
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.09);
+      border-radius:4px; transition:all .3s;
     }
-    .clink:hover {
-      background:rgba(255,255,255,.1);
-      border-color:rgba(255,255,255,.2);
-      transform:translateY(-3px);
-    }
-    .clink-icon {
-      width:46px; height:46px; flex-shrink:0;
-      border-radius:50%; background:rgba(255,255,255,.1);
-      display:flex; align-items:center; justify-content:center;
-      font-size:1.25rem;
-    }
-    .clink-lbl {
-      font-size:.68rem; letter-spacing:.17em;
-      text-transform:uppercase; color:rgba(255,255,255,.45);
-      margin-bottom:.3rem;
-    }
+    .clink:hover { background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.2); transform:translateY(-3px); }
+    .clink-icon { width:46px; height:46px; flex-shrink:0; border-radius:50%; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; font-size:1.25rem; }
+    .clink-lbl { font-size:.68rem; letter-spacing:.17em; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:.3rem; }
     .clink-val { font-size:1rem; font-weight:500; color:#fff; }
 
     /* ── FOOTER ── */
     footer {
-      background:var(--dark);
-      border-top:1px solid rgba(255,255,255,.06);
-      padding:2rem 4rem;
-      display:flex; align-items:center; justify-content:space-between;
+      background:var(--dark); border-top:1px solid rgba(255,255,255,.06);
+      padding:2rem 4rem; display:flex; align-items:center; justify-content:space-between;
     }
     .foot-copy { font-size:.78rem; color:rgba(255,255,255,.28); }
-    .foot-brand {
-      font-family:'Cormorant Garamond',serif;
-      font-size:.95rem; color:rgba(255,255,255,.35);
-      font-style:italic;
-    }
+    .foot-brand { font-family:'Cormorant Garamond',serif; font-size:.95rem; color:rgba(255,255,255,.35); font-style:italic; }
 
     /* ── WhatsApp FAB ── */
     .wa {
       position:fixed; bottom:2rem; right:2rem; z-index:800;
-      width:58px; height:58px; border-radius:50%;
-      background:#25D366;
+      width:58px; height:58px; border-radius:50%; background:#25D366;
       display:flex; align-items:center; justify-content:center;
-      box-shadow:0 4px 20px rgba(37,211,102,.45);
-      transition:all .3s;
+      box-shadow:0 4px 20px rgba(37,211,102,.45); transition:all .3s;
     }
     .wa:hover { transform:scale(1.1) translateY(-3px); box-shadow:0 8px 32px rgba(37,211,102,.55); }
     .wa svg { width:28px; height:28px; fill:#fff; }
@@ -409,11 +359,7 @@
       from { opacity:0; transform:translateY(22px); }
       to   { opacity:1; transform:translateY(0); }
     }
-
-    .reveal {
-      opacity:0; transform:translateY(28px);
-      transition:opacity .75s ease, transform .75s ease;
-    }
+    .reveal { opacity:0; transform:translateY(28px); transition:opacity .75s ease, transform .75s ease; }
     .reveal.in { opacity:1; transform:none; }
     .d1 { transition-delay:.1s; }
     .d2 { transition-delay:.22s; }
@@ -424,21 +370,19 @@
       nav { padding:1rem 1.5rem; }
       .nav-links { display:none; }
       .ham { display:flex; }
-
       section { padding:4.5rem 1.5rem; }
       .hero { padding:8rem 1.5rem 5rem; }
-
       .about-grid { grid-template-columns:1fr; gap:2.5rem; }
       .pcard { position:static; }
       .pcard-avatar { width:72px; height:72px; font-size:1.8rem; }
-
+      .cards-grid { grid-template-columns:1fr 1fr; }
       .fb-card { grid-template-columns:1fr; }
       .fb-panel { padding:2.5rem; min-height:160px; flex-direction:row; }
-
       .clinks { grid-template-columns:1fr; }
-
-      footer { flex-direction:column; gap:.6rem; text-align:center; }
-      footer { padding:2rem 1.5rem; }
+      footer { flex-direction:column; gap:.6rem; text-align:center; padding:2rem 1.5rem; }
+    }
+    @media (max-width:540px) {
+      .cards-grid { grid-template-columns:1fr; }
     }
   </style>
 </head>
@@ -453,6 +397,7 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#resources">Resources</a></li>
+    <li><a href="#community">Community</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="ham" id="ham" onclick="openMenu()">
@@ -460,11 +405,11 @@
   </div>
 </nav>
 
-<!-- Mobile Menu -->
 <div class="mob" id="mob">
   <span class="mob-close" onclick="closeMenu()">✕</span>
   <a href="#about"     onclick="closeMenu()">About</a>
   <a href="#resources" onclick="closeMenu()">Resources</a>
+  <a href="#community" onclick="closeMenu()">Community</a>
   <a href="#contact"   onclick="closeMenu()">Contact</a>
 </div>
 
@@ -473,27 +418,21 @@
   <div class="hero-glow"></div>
   <div class="hero-ring"></div>
   <div class="hero-inner">
-
     <div class="hero-badge a1">
       <span class="badge-dot"></span>
       Associate Professor &nbsp;·&nbsp; Government Postgraduate College Sahiwal
     </div>
-
     <h1 class="hero-h1 a2">
       Learning<br><em>Biology</em> &amp;<br>Biochemistry
     </h1>
-
     <p class="hero-sub a3">Simplifying Life Sciences for Every Student</p>
     <p class="hero-inst a4">Government Postgraduate College Sahiwal &nbsp;·&nbsp; Pakistan</p>
-
     <div class="hero-cta a5">
-      <a href="https://www.facebook.com/share/1BYq7AtTAY/"
-         target="_blank" rel="noopener" class="btn btn-solid">
+      <a href="https://www.facebook.com/share/1BYq7AtTAY/" target="_blank" rel="noopener" class="btn btn-solid">
         📘&nbsp; Follow on Facebook
       </a>
       <a href="#about" class="btn btn-ghost">Explore &rarr;</a>
     </div>
-
   </div>
 </section>
 
@@ -501,15 +440,10 @@
 <section class="about" id="about">
   <div class="inner">
     <div class="about-grid">
-
-      <!-- Profile card -->
       <div class="reveal">
         <div class="pcard">
           <div class="pcard-top">
             <div class="pcard-avatar">R</div>
-            <!--
-              ★ REPLACE "Prof. [Your Name]" with the actual name below
-            -->
             <div class="pcard-name">Prof. Rashid Ramay</div>
             <div class="pcard-role">Associate Professor</div>
           </div>
@@ -533,29 +467,12 @@
           </div>
         </div>
       </div>
-
-      <!-- About text -->
       <div class="about-body reveal d1">
         <span class="eyebrow">About</span>
         <h2 class="sec-title">A Passion for<br><em>Life Sciences</em></h2>
-
-        <p>
-          Welcome. I'm an Associate Professor of Biology and Biochemistry at
-          <strong>Government Postgraduate College Sahiwal</strong>, with years of dedicated
-          experience guiding students through the fascinating world of life sciences.
-        </p>
-        <p>
-          Through my Facebook page, <strong>Learning Biology / Biochemistry</strong>,
-          I share educational content — detailed notes, diagrams, MCQs, and solved
-          exercises — directly with students, free of charge, wherever they are.
-        </p>
-        <p>
-          My belief is simple: every student deserves clear, engaging, and accessible
-          science education. Whether you're preparing for board exams or driven by
-          sheer curiosity about how life works at the molecular level, this page is
-          built for you.
-        </p>
-
+        <p>Welcome. I'm an Associate Professor of Biology and Biochemistry at <strong>Government Postgraduate College Sahiwal</strong>, with years of dedicated experience guiding students through the fascinating world of life sciences.</p>
+        <p>Through my Facebook page, <strong>Learning Biology / Biochemistry</strong>, I share educational content — detailed notes, diagrams, MCQs, and solved exercises — directly with students, free of charge, wherever they are.</p>
+        <p>My belief is simple: every student deserves clear, engaging, and accessible science education. Whether you're preparing for board exams or driven by sheer curiosity about how life works at the molecular level, this page is built for you.</p>
         <div class="topics">
           <span class="tag">Cell Biology</span>
           <span class="tag">Biochemistry</span>
@@ -569,24 +486,186 @@
           <span class="tag">Enzymology</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ RESOURCES (NOTES) ══ -->
+<section class="resources" id="resources">
+  <div class="inner">
+
+    <div class="reveal" style="margin-bottom:2.5rem;">
+      <span class="eyebrow">Study Material</span>
+      <h2 class="sec-title">Notes &amp; <em>Resources</em></h2>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div class="filters reveal d1" id="filters">
+      <button class="filter-btn on" data-filter="all">All <span class="count" id="cnt-all"></span></button>
+      <button class="filter-btn" data-filter="cell-biology">Cell Biology</button>
+      <button class="filter-btn" data-filter="biochemistry">Biochemistry</button>
+      <button class="filter-btn" data-filter="genetics">Genetics</button>
+      <button class="filter-btn" data-filter="physiology">Physiology</button>
+      <button class="filter-btn" data-filter="botany">Botany</button>
+      <button class="filter-btn" data-filter="zoology">Zoology</button>
+    </div>
+
+    <!-- Cards Grid -->
+    <!--
+    ══════════════════════════════════════════════════════════
+      HOW TO ADD A NEW NOTE:
+      1. Upload your PDF to the /notes folder in your GitHub repo
+      2. Copy any card block below
+      3. Update href="./notes/YOUR-FILE.pdf" on both buttons
+      4. Update the title, description, and card-subject text
+      5. Set data-subject to one of:
+         cell-biology | biochemistry | genetics | physiology | botany | zoology
+      6. Commit — Vercel redeploys automatically ✅
+    ══════════════════════════════════════════════════════════
+    -->
+    <div class="cards-grid reveal d2" id="grid">
+
+      <!-- CARD 1 -->
+      <div class="note-card" data-subject="cell-biology">
+        <div class="card-top">
+          <span class="card-subject">Cell Biology</span>
+          <span class="card-new">New</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Introduction to Cell Structure</h3>
+          <p class="card-desc">Prokaryotic vs eukaryotic cells, organelles, cell membranes and transport mechanisms.</p>
+        </div>
+        <div class="card-footer">
+          <a href="./notes/cell-biology-intro.pdf" target="_blank" rel="noopener" class="btn-open">📄 Open PDF</a>
+          <a href="./notes/cell-biology-intro.pdf" download class="btn-dl" title="Download">↓</a>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="note-card" data-subject="cell-biology">
+        <div class="card-top">
+          <span class="card-subject">Cell Biology</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Cell Division — Mitosis &amp; Meiosis</h3>
+          <p class="card-desc">Detailed notes on phases of mitosis and meiosis, spindle formation, and significance.</p>
+        </div>
+        <div class="card-footer">
+          <a href="./notes/cell-division.pdf" target="_blank" rel="noopener" class="btn-open">📄 Open PDF</a>
+          <a href="./notes/cell-division.pdf" download class="btn-dl" title="Download">↓</a>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="note-card" data-subject="biochemistry">
+        <div class="card-top">
+          <span class="card-subject">Biochemistry</span>
+          <span class="card-new">New</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Enzymes &amp; Enzyme Kinetics</h3>
+          <p class="card-desc">Enzyme structure, active sites, Michaelis-Menten kinetics, inhibitors and cofactors.</p>
+        </div>
+        <div class="card-footer">
+          <a href="./notes/enzymes.pdf" target="_blank" rel="noopener" class="btn-open">📄 Open PDF</a>
+          <a href="./notes/enzymes.pdf" download class="btn-dl" title="Download">↓</a>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="note-card" data-subject="biochemistry">
+        <div class="card-top">
+          <span class="card-subject">Biochemistry</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Carbohydrates — Structure &amp; Function</h3>
+          <p class="card-desc">Monosaccharides, disaccharides, polysaccharides, glycolysis overview and metabolic role.</p>
+        </div>
+        <div class="card-footer">
+          <a href="./notes/carbohydrates.pdf" target="_blank" rel="noopener" class="btn-open">📄 Open PDF</a>
+          <a href="./notes/carbohydrates.pdf" download class="btn-dl" title="Download">↓</a>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="note-card" data-subject="genetics">
+        <div class="card-top">
+          <span class="card-subject">Genetics</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">DNA Replication &amp; Transcription</h3>
+          <p class="card-desc">Semi-conservative replication, RNA polymerase, transcription factors and mRNA processing.</p>
+        </div>
+        <div class="card-footer">
+          <a href="./notes/dna-replication.pdf" target="_blank" rel="noopener" class="btn-open">📄 Open PDF</a>
+          <a href="./notes/dna-replication.pdf" download class="btn-dl" title="Download">↓</a>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="note-card" data-subject="physiology">
+        <div class="card-top">
+          <span class="card-subject">Physiology</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Human Digestive System</h3>
+          <p class="card-desc">Organs of digestion, digestive enzymes, absorption in the small intestine, liver functions.</p>
+        </div>
+        <div class="card-footer">
+          <a href="./notes/digestive-system.pdf" target="_blank" rel="noopener" class="btn-open">📄 Open PDF</a>
+          <a href="./notes/digestive-system.pdf" download class="btn-dl" title="Download">↓</a>
+        </div>
+      </div>
+
+      <!-- CARD 7 -->
+      <div class="note-card" data-subject="botany">
+        <div class="card-top">
+          <span class="card-subject">Botany</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Photosynthesis — Light &amp; Dark Reactions</h3>
+          <p class="card-desc">Chloroplast structure, light-dependent reactions, Calvin cycle, and C3 vs C4 plants.</p>
+        </div>
+        <div class="card-footer">
+          <a href="./notes/photosynthesis.pdf" target="_blank" rel="noopener" class="btn-open">📄 Open PDF</a>
+          <a href="./notes/photosynthesis.pdf" download class="btn-dl" title="Download">↓</a>
+        </div>
+      </div>
+
+      <!-- CARD 8 -->
+      <div class="note-card" data-subject="zoology">
+        <div class="card-top">
+          <span class="card-subject">Zoology</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Nervous System — Neuron Structure</h3>
+          <p class="card-desc">Neuron anatomy, action potential, synaptic transmission, CNS vs PNS overview.</p>
+        </div>
+        <div class="card-footer">
+          <a href="./notes/nervous-system.pdf" target="_blank" rel="noopener" class="btn-open">📄 Open PDF</a>
+          <a href="./notes/nervous-system.pdf" download class="btn-dl" title="Download">↓</a>
+        </div>
+      </div>
+
+      <div class="empty" id="empty">
+        <div class="empty-icon">📂</div>
+        <p>No notes in this category yet.<br>Check back soon!</p>
+      </div>
 
     </div>
   </div>
 </section>
 
-<!-- ══ RESOURCES ══ -->
-<section class="resources" id="resources">
+<!-- ══ COMMUNITY ══ -->
+<section class="community" id="community">
   <div class="inner">
-
     <div class="reveal" style="margin-bottom:2.5rem;">
-      <span class="eyebrow">Learning Resources</span>
+      <span class="eyebrow">Connect</span>
       <h2 class="sec-title">Join the <em>Community</em></h2>
     </div>
-
     <div class="fb-card reveal d1">
       <div class="fb-body">
         <h3>Learning Biology /<br>Biochemistry</h3>
-
         <div class="find-list">
           <span class="find-chip">Lecture Notes</span>
           <span class="find-chip">Diagrams</span>
@@ -595,44 +674,29 @@
           <span class="find-chip">Exam Tips</span>
           <span class="find-chip">Solved Exercises</span>
         </div>
-
-        <p>
-          Follow the Facebook page for a steady stream of free study material —
-          updated regularly, explained clearly, and designed to help every student
-          build genuine understanding.
-        </p>
-
-        <a href="https://www.facebook.com/share/1BYq7AtTAY/"
-           target="_blank" rel="noopener" class="btn btn-solid">
+        <p>Follow the Facebook page for a steady stream of free study material — updated regularly, explained clearly, and designed to help every student build genuine understanding.</p>
+        <a href="https://www.facebook.com/share/1BYq7AtTAY/" target="_blank" rel="noopener" class="btn btn-solid">
           Visit the Page &rarr;
         </a>
       </div>
-
       <div class="fb-panel">
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-          <path d="M63 32H56C53.2 32 52.5 34 52.5 36.5V43H63L61.5 54H52.5V84H41V54H34V43H41V35.5C41 27 46.5 22 54 22C57.2 22 61 22.5 63 23V32Z"
-                fill="white"/>
+          <path d="M63 32H56C53.2 32 52.5 34 52.5 36.5V43H63L61.5 54H52.5V84H41V54H34V43H41V35.5C41 27 46.5 22 54 22C57.2 22 61 22.5 63 23V32Z" fill="white"/>
         </svg>
         <div class="fb-panel-label">Facebook Page</div>
       </div>
     </div>
-
   </div>
 </section>
 
 <!-- ══ CONTACT ══ -->
 <section class="contact" id="contact">
   <div class="inner">
-
     <div class="reveal">
       <span class="eyebrow">Get in Touch</span>
       <h2 class="sec-title">Contact</h2>
-      <p class="contact-desc">
-        Have a question about a topic, need study guidance, or just want to say
-        hello? Reach out on WhatsApp or through the Facebook page.
-      </p>
+      <p class="contact-desc">Have a question about a topic, need study guidance, or just want to say hello? Reach out on WhatsApp or through the Facebook page.</p>
     </div>
-
     <div class="clinks reveal d1">
       <a href="https://wa.me/923160640960" target="_blank" rel="noopener" class="clink">
         <div class="clink-icon">💬</div>
@@ -649,56 +713,58 @@
         </div>
       </a>
     </div>
-
   </div>
 </section>
 
 <!-- ══ FOOTER ══ -->
 <footer>
-  <span class="foot-copy">
-    &copy; <span id="yr"></span> Learning Biology &amp; Biochemistry &nbsp;·&nbsp; Government Postgraduate College Sahiwal
-  </span>
+  <span class="foot-copy">&copy; <span id="yr"></span> Learning Biology &amp; Biochemistry &nbsp;·&nbsp; Government Postgraduate College Sahiwal</span>
   <span class="foot-brand">Learning Biology / Biochemistry</span>
 </footer>
 
 <!-- WhatsApp FAB -->
-<a href="https://wa.me/923160640960" target="_blank" rel="noopener"
-   class="wa" title="Chat on WhatsApp" aria-label="WhatsApp">
+<a href="https://wa.me/923160640960" target="_blank" rel="noopener" class="wa" title="Chat on WhatsApp" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94
-             1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059
-             -.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371
-             -.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01
-             -.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198
-             2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719
-             2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87
-             9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001
-             -5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003
-             5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157
-             11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005
-             c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
 </a>
 
 <script>
-  /* year */
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  /* scroll nav shadow */
   window.addEventListener('scroll', () => {
     document.getElementById('nav').classList.toggle('scrolled', scrollY > 40);
-  }, { passive: true });
+  }, { passive:true });
 
-  /* scroll reveal */
   const obs = new IntersectionObserver(entries =>
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }),
     { threshold: 0.1 }
   );
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
-  /* mobile menu */
   function openMenu()  { document.getElementById('mob').classList.add('open');    document.body.style.overflow='hidden'; }
   function closeMenu() { document.getElementById('mob').classList.remove('open'); document.body.style.overflow=''; }
+
+  /* Filter logic */
+  const cards  = Array.from(document.querySelectorAll('.note-card[data-subject]'));
+  const btns   = document.querySelectorAll('.filter-btn');
+  const empty  = document.getElementById('empty');
+  document.getElementById('cnt-all').textContent = cards.length;
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btns.forEach(b => b.classList.remove('on'));
+      btn.classList.add('on');
+      const f = btn.dataset.filter;
+      let visible = 0;
+      cards.forEach(card => {
+        const show = f === 'all' || card.dataset.subject === f;
+        card.style.display = show ? '' : 'none';
+        if (show) visible++;
+      });
+      empty.classList.toggle('show', visible === 0);
+    });
+  });
 </script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
